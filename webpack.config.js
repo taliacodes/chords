@@ -1,19 +1,21 @@
+const path = require("path")
+
 module.exports = {
-  entry: './client/index.js',
+  entry: '../client/index.js',
   mode: 'development',
   output: {
-    path: __dirname,
+    path: path.join(__dirname , "/public"),
     filename: 'bundle.js'
   },
   devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['react', 'es2015']
+          presets: ['@babel/react']
         }
       },
       {
